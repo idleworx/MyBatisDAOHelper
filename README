@@ -1,0 +1,9 @@
+A helper framework for using MyBatis with the DAO pattern.
+Created by http://www.idleworx.com http://blog.idleworx.com http://twitter.com/idleworx
+
+Dependencies (available in the lib folder):
+=========================================
+- mybatis(latest).jar
+- slf4j | logback 
+- junit4 for running the tests
+- mysql jdbc driver

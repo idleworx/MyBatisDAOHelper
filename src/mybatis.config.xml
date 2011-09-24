@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<properties resource="dbcp.properties"/>		
+	
+	<settings>
+		<setting name="useGeneratedKeys" value="true"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="Status" type="com.idleworx.mybatisdao.tests.objects.Status"/>
+	</typeAliases>
+		
+	<environments default="testing">
+		
+		<!-- 
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="JNDI">
+				<property name="initial_context" value="java:comp/env"/>
+				<property name="data_source" value="/jdbc/yourdb"/>	
+			</dataSource>
+		</environment>
+		-->
+		
+		<environment id="testing">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${db.driver}"/>
+				<property name="url" value="${db.url}"/>
+				<property name="username" value="${db.user}"/>
+				<property name="password" value="${db.pass}"/>
+			</dataSource>
+		</environment>
+		
+	</environments>
+
+
+<mappers>	
+	<mapper resource="com/idleworx/mybatisdao/tests/objects/StatusMapper.xml" />
+</mappers>
+
+</configuration>

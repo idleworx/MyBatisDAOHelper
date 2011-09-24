@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers">
+	
+	<select id="getStatus" parameterType="int" resultType="Status">
+		select 
+			status_id as "id",
+			status_name as "name"
+		from daohelper.status where status_id = #{id}
+	</select>
+	
+	<select id="getAllStatus" parameterType="int" resultType="Status">
+		select 
+			status_id as "id",
+			status_name as "name"
+		from daohelper.status order by status_id
+	</select>
+	
+	<select id="getStatusByName" parameterType="int" resultType="Status">
+		select 
+			status_id as "id",
+			status_name as "name"
+		from daohelper.status where status_name = #{name}
+	</select>
+	
+	<insert id="createStatus" keyColumn="status_id" useGeneratedKeys="true" parameterType="Status">
+		insert into daohelper.status (status_name)
+		values (#{name})		
+	</insert>
+	
+	<update id="updateStatus" parameterType="Status">
+		update daohelper.status set status_name = #{name} where status_id = #{id}		
+	</update>
+	
+	<delete id="deleteStatus" parameterType="int">
+		delete from daohelper.status where status_id = #{id}		
+	</delete>
+	
+	
+</mapper>
+
